@@ -1,6 +1,7 @@
 streamlit
-opencv-python
+opencv-python-headless
 Pillow
 python-dotenv
 google-generativeai
 numpy
+opencv-python-headless
