@@ -1,7 +1,3 @@
-Great! Here's a clean and ready-to-use `README.md` for your Streamlit + Gemini AI image editor app.
-
----
-
 ## 📄 `README.md`
 
 ````markdown
@@ -71,15 +67,3 @@ MIT License
 ## 🙋‍♂️ Author
 
 Made with ❤️ by [Your Name](https://github.com/your-username)
-
-```
-
----
-
-Let me know if you'd like me to:
-- Add badges (e.g., Streamlit Cloud, License, GitHub stars)
-- Auto-generate the `requirements.txt`
-- Customize this for a team/project name/logo
-
-You can now copy this content and save it in a new file called `README.md` in your repo.
-```
