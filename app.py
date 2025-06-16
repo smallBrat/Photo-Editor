@@ -19,7 +19,7 @@ def load_image(image_file):
 def apply_brightness(image, value):
     hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
     h, s, v = cv2.split(hsv)
-    v = np.clip(v + value, 0, 255).astype(np.uint8)
+    v = np.clip(v.astype(int) + value, 0, 255).astype(np.uint8)  
     final_hsv = cv2.merge((h, s, v))
     return cv2.cvtColor(final_hsv, cv2.COLOR_HSV2RGB)
 
@@ -113,6 +113,17 @@ if uploaded_file:
 
         elif edit_option == "Highlight":
             result = apply_highlight(result)
+             
+
+    # --- Display side-by-side comparison ---
+    st.markdown("## 🖼️ Compare Original vs Edited Image")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image(image, caption="📷 Original Image", use_container_width=True)
+
+    with col2:
+        st.image(result, caption="🎨 Edited Image", use_container_width=True)
 
     # --- Filters Section ---
     st.markdown("## 🎨 Apply Filters")
@@ -122,10 +133,9 @@ if uploaded_file:
         ])
         if mood_option != "None":
             result = apply_filter(result, mood_option)
-
-    # --- Output Image ---
-    st.markdown("## 🖼️ Edited Image")
+            st.markdown("## 🖼️ Edited Image")
     st.image(result, caption="Edited Image", use_container_width=True)
+
 
     # --- Gemini Caption Generator ---
     st.markdown("## 📝 Generate Caption with Gemini AI")
